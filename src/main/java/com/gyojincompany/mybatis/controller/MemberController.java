@@ -93,8 +93,10 @@ public class MemberController {
 		
 		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
 		ArrayList<MemberDto> memberDtos = memberDao.memberlistDao();
+		int totalMember = memberDao.totalMemberDao();//총 회원수 반환
 		
 		model.addAttribute("memberList", memberDtos);
+		model.addAttribute("total", totalMember);
 		
 		return "memberlist";
 	}
