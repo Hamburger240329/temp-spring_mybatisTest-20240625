@@ -18,4 +18,8 @@
 		SELECT * FROM members WHERE mid=#{param1}
 	</select>
 	
+	<select id="memberlistDao" resultType="com.gyojincompany.mybatis.dto.MemberDto">
+		SELECT * FROM members
+	</select>
+	
 </mapper>    

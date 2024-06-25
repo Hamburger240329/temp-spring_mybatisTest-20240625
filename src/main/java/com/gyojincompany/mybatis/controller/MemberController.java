@@ -1,5 +1,7 @@
 package com.gyojincompany.mybatis.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -84,6 +86,17 @@ public class MemberController {
 		}
 		
 		return "searchOk";
+	}
+	
+	@RequestMapping(value = "/memberlist")
+	public String memberlist(Model model) {
+		
+		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
+		ArrayList<MemberDto> memberDtos = memberDao.memberlistDao();
+		
+		model.addAttribute("memberList", memberDtos);
+		
+		return "memberlist";
 	}
 	
 	
