@@ -10,4 +10,12 @@
 		INSERT INTO members(mid, mpw, mname, memail) VALUES (#{param1},#{param2},#{param3},#{param4})
 	</insert>
 	
+	<select id="loginDao" resultType="int">
+		SELECT count(*) FROM members WHERE mid=#{param1} AND mpw=#{param2}
+	</select>
+	
+	<select id="searchDao" resultType="com.gyojincompany.mybatis.dto.MemberDto">
+		SELECT * FROM members WHERE mid=#{param1}
+	</select>
+	
 </mapper>    
