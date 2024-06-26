@@ -10,11 +10,20 @@
 	<h2>회원 가입</h2>
 	<hr>
 	<table border="1" cellspacing="" cellpadding="0" size="600">
-	<form action="joinOk">
+		<tr>
+			<td colspan="2">
+				<form action="checkid">
+					아이디 체크 : <input type="text" name="checkId" size="60">
+					<input type="submit" value="중복확인">
+				</form>
+			</td>
+		</tr>
+		
+	<form action="joinOk">	
 		<tr>
 			<td>아이디</td>
 			<td>
-				<input type="text" name="mid" size="70">
+				<input type="text" name="mid" size="70">				
 			</td>
 		</tr>
 		<tr>

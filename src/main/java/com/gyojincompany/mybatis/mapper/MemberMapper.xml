@@ -30,4 +30,8 @@
 		DELETE FROM members WHERE mid=#{param1}
 	</delete>
 	
+	<select id="checkIdDao" resultType="int">
+		SELECT count(*) FROM members WHERE mid=#{param1}
+	</select>
+	
 </mapper>    
