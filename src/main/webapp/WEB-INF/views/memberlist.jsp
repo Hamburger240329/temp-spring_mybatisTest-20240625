@@ -21,7 +21,7 @@
 		
 		<c:forEach items="${memberList}" var="member" varStatus="number">
 		<tr>
-			<td>${number.count }</td>
+			<td>${number.count}</td>
 			<td>${member.mid }</td>
 			<td>${member.mname }</td>
 			<td>${member.memail }</td>

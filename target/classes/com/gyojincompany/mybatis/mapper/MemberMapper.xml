@@ -26,4 +26,8 @@
 		SELECT count(*) FROM members
 	</select>
 	
+	<delete id="deleteMemberDao">
+		DELETE FROM members WHERE mid=#{param1}
+	</delete>
+	
 </mapper>    

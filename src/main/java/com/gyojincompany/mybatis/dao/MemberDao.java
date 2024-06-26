@@ -11,4 +11,5 @@ public interface MemberDao {
 	public MemberDto searchDao(String mid);//회원 아이디로 정보 조회 메소드
 	public ArrayList<MemberDto> memberlistDao();//회원 리스트 조회 메소드
 	public int totalMemberDao();//총 회원수 조회 메소드
+	public int deleteMemberDao(String mid);//회원 탈퇴(회원 삭제) 메소드
 }
