@@ -120,10 +120,6 @@ public class MemberController {
 			model.addAttribute("deleteFail", "존재하지 않는 회원입니다. 다시 확인하세요.");
 			return "delete";
 		}
-		
-		
-		
-		
 	}
 
 }
