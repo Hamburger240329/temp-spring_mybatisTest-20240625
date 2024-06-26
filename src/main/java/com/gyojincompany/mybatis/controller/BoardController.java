@@ -66,13 +66,33 @@ public class BoardController {
 	@RequestMapping(value = "/contentView")
 	public String contentView(HttpServletRequest request, Model model) {
 		
+		BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
+		BoardDto boardDto = boardDao.contentViewDao(request.getParameter("bnum"));
 		
+		model.addAttribute("boardDto", boardDto);
 		
 		return "content_view";
 	}
 	
+	@RequestMapping(value = "/modify")
+	public String modify(HttpServletRequest request, Model model) {
+		
+		BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
+		BoardDto boardDto = boardDao.contentViewDao(request.getParameter("bnum"));
+		
+		model.addAttribute("boardDto", boardDto);
+		
+		return "modify_form";
+	}
 	
-	
+	@RequestMapping(value = "/modifyOk")
+	public String modifyOk(HttpServletRequest request, Model model) {
+		
+		BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
+		boardDao.modifyDao(request.getParameter("btitle"), request.getParameter("bcontent"), request.getParameter("bnum"));
+		
+		return "redirect:list";
+	}
 	
 	
 	

@@ -14,4 +14,12 @@
 		SELECT * FROM springboard ORDER BY bnum DESC
 	</select>
 	
+	<select id="contentViewDao" resultType="com.gyojincompany.mybatis.dto.BoardDto">
+		SELECT * FROM springboard WHERE bnum=#{param1}
+	</select>
+	
+	<update id="modifyDao">
+		UPDATE springboard SET btitle=#{param1}, bcontent=#{param2} WHERE bnum=#{param3}
+	</update>
+	
 </mapper>    
