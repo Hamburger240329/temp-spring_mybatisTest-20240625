@@ -1,5 +1,7 @@
 package com.gyojincompany.mybatis.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gyojincompany.mybatis.dao.BoardDao;
 import com.gyojincompany.mybatis.dao.MemberDao;
+import com.gyojincompany.mybatis.dto.BoardDto;
 import com.gyojincompany.mybatis.dto.MemberDto;
 
 @Controller
@@ -48,6 +51,31 @@ public class BoardController {
 		
 		return "redirect:list";
 	}
+	
+	@RequestMapping(value = "/list")
+	public String list(HttpServletRequest request, Model model) {
+		
+		BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
+		ArrayList<BoardDto> boardDtos =  boardDao.boardListDao();
+		
+		model.addAttribute("boardList", boardDtos);
+		
+		return "boardlist";
+	}
+	
+	@RequestMapping(value = "/contentView")
+	public String contentView(HttpServletRequest request, Model model) {
+		
+		
+		
+		return "content_view";
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	

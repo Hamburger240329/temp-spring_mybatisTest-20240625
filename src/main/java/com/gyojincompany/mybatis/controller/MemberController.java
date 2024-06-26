@@ -121,5 +121,20 @@ public class MemberController {
 			return "delete";
 		}
 	}
+	
+	@RequestMapping(value = "/logout")
+	public String logout(HttpSession session) {
+		
+		session.invalidate();//로그아웃->세션삭제
+		
+		return "redirect:login";
+	}
+	
+	
+	
+	
+	
+	
+	
 
 }

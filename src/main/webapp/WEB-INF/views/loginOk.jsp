@@ -9,6 +9,9 @@
 <body>
 	<h2>로그인 성공</h2>
 	<hr>
-	<h3>${loginid }님 로그인 성공하셨습니다!</h3>
+	<h3>${loginid }님 로그인 성공하셨습니다!</h3>	
+	<hr>
+	<a href="list">게시판 바로 가기</a><br><br>
+	<a href="logout">로그 아웃</a>
 </body>
 </html>
