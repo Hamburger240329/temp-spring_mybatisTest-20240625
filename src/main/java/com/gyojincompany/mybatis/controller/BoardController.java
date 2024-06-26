@@ -67,6 +67,8 @@ public class BoardController {
 	public String contentView(HttpServletRequest request, Model model, HttpSession session) {
 		
 		BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
+		boardDao.uphitDao(request.getParameter("bnum"));//조회수 1증가(bhit=bhit+1)
+		
 		BoardDto boardDto = boardDao.contentViewDao(request.getParameter("bnum"));
 		
 		String sessionid = (String) session.getAttribute("sessionid");//세션 아이디 가져오기
@@ -98,12 +100,29 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/modifyOk")
-	public String modifyOk(HttpServletRequest request, Model model) {
+	public String modifyOk(HttpServletRequest request, Model model, HttpSession session) {
 		
 		BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
 		boardDao.modifyDao(request.getParameter("btitle"), request.getParameter("bcontent"), request.getParameter("bnum"));
 		
-		return "redirect:list";
+		BoardDto boardDto = boardDao.contentViewDao(request.getParameter("bnum"));
+		
+
+		String sessionid = (String) session.getAttribute("sessionid");//세션 아이디 가져오기
+		
+		//System.out.println("세션아이디:"+sessionid);
+		
+		int idCheck = 0;//flag값
+		
+		if((sessionid != null) && (boardDto.getBid().equals(sessionid))) {//현재 로그인한 아이디와 글쓴 아이디가 동일
+			idCheck = 1;
+		}
+		
+		model.addAttribute("idCheck", idCheck);
+		
+		model.addAttribute("boardDto", boardDto);
+		
+		return "content_view";
 	}
 	
 	

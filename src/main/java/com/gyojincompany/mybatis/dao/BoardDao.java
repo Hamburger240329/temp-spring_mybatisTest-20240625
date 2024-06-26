@@ -10,4 +10,5 @@ public interface BoardDao {
 	public ArrayList<BoardDto> boardListDao();//글 목록
 	public BoardDto contentViewDao(String bnum);//글 번호로 내용 조회
 	public void modifyDao(String btitle, String bcontent, String bnum);//글 수정
+	public void uphitDao(String bnum);//조회수 증가
 }

@@ -22,4 +22,8 @@
 		UPDATE springboard SET btitle=#{param1}, bcontent=#{param2} WHERE bnum=#{param3}
 	</update>
 	
+	<update id="uphitDao">
+		UPDATE springboard SET bhit=bhit+1 WHERE bnum=#{param1}
+	</update>
+	
 </mapper>    
